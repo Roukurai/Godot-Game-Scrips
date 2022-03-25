@@ -1,0 +1,4 @@
+#List of variables, for scriptloader
+
+SCRIPTLOADER itself
+PLAYER for player.gd

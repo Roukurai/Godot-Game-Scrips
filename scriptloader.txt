@@ -1,0 +1,21 @@
+#SCRIPTLOADER
+
+extends Node2D
+
+onready var gemsNode = get_node("gemsNode") 
+onready var gem = preload("res://gem.tscn")
+#var playerScript = preload("res://Player.gd")
+
+
+func _ready():
+	OS.set_window_maximized(true)
+	connect("gemsGenerate", self, "gemsGenerator")
+
+func gemsGenerator():
+	var posX = $player.x
+	var posY = $player.y
+	
+	var g = gem.instance()
+	gemsNode.add_child(g)
+	g.position = Vector2(posX + 64, posY + 64)
+

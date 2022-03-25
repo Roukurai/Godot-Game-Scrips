@@ -1,0 +1,12 @@
+#This will be the gemPurple script
+
+
+extends Area2D
+
+var currency = 0
+
+
+func _on_gemPurple_body_entered(body):
+	queue_free()
+	currency += 1 
+	print(body.get_name()) 

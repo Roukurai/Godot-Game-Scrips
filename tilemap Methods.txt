@@ -1,0 +1,14 @@
+TILEMAP METHODS
+
+
+int get_cell ( int x, int y ) const
+Returns the tile index of the given cell. If no tile exists in the cell, returns INVALID_CELL.
+
+Array get_used_cells ( ) const
+Returns a Vector2 array with the positions of all cells containing a tile from the tileset (i.e. a tile index different from -1).
+
+Array get_used_cells_by_id ( int id ) const
+Returns an array of all cells with the given tile id.
+
+Vector2 world_to_map ( Vector2 world_position ) const
+Returns the tilemap (grid-based) coordinates corresponding to the given local position.

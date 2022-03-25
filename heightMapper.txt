@@ -1,0 +1,87 @@
+#copy pastable
+
+				#water_levels
+				if sample <= 1 and sample > 0.7:
+					set_cell(x+x_pos,y+y_pos,2)
+				elif sample <= 0.7 and sample> .6:
+					set_cell(x+x_pos,y+y_pos,1)
+#				elif sample <= 0.6 and sample> .4:
+#					set_cell(x+x_pos,y+y_pos,0)
+				
+				#land_level
+				#beach
+				elif sample <= 0.40 and sample> .30:
+					set_cell(x+x_pos,y+y_pos,13)
+				elif sample <= 0.30 and sample> .20:
+					set_cell(x+x_pos,y+y_pos,12)
+				elif sample <= 0.20 and sample> .10:
+					set_cell(x+x_pos,y+y_pos,10)
+
+					
+				#grasslands
+				elif sample <=.10 and sample >= -.1:
+					set_cell(x+x_pos,y+y_pos,8)
+				elif sample <-.1 and sample >= -.2:
+					set_cell(x+x_pos,y+y_pos,7)
+				elif sample <-.2 and sample >= -.3:
+					set_cell(x+x_pos,y+y_pos,6)
+				elif sample <-.3 and sample >= -.5:
+					set_cell(x+x_pos,y+y_pos,5)
+
+				
+				#mountain_level
+				elif sample <-.5 and sample >= -.6:
+					set_cell(x+x_pos,y+y_pos,19)
+				elif sample <-.6 and sample >= -.7:
+					set_cell(x+x_pos,y+y_pos,18)
+				elif sample <-.7 and sample >= -.8:
+					set_cell(x+x_pos,y+y_pos,17)
+				elif sample <-.8 and sample >= -.9:
+					set_cell(x+x_pos,y+y_pos,16)
+				elif sample <-.9 and sample >= -1:
+					set_cell(x+x_pos,y+y_pos,15)
+
+
+
+Array[x0,y0,c0
+	  x1,y1,c1		
+	  x2,y2,c2	]
+array[0[0]]
+
+orveca = Vector2(originx,originy)
+orvecb = Vector2(originx+factor,originy)
+orvecc = Vector2(originx,originy+factor)
+orvecd = Vector2(originx+factor,originy+factor)
+
+
+	var prevRect = array[-1]
+		var prevc =prevRect[2]
+		var prevd = prevRect[3]
+		
+		var prevRectstep = prevRect[5]
+		if xstep == prevRectstep:
+			orvecc = Vector2(prevc.x,prevc.y+factor)
+			orvecd = Vector2(prevc.x+factor,prevc.y+factor)
+			scaledArray = [prevc,prevd,orvecc,orvecd,shade,xstep]
+		else:
+			
+			orvecc = Vector2(prevd.x,prevd.y+factor)
+			orvecd = Vector2(prevd.x+factor,prevd.y+factor)
+			scaledArray = [prevd,prevd.x+factor,orvecc,orvecd,shade,xstep]
+			
+			
+			
+			
+			if array.size()==0:
+		= Vector2(originx,originy)
+		= Vector2(originx+factor,originy)
+		= Vector2(originx,originy+factor)
+		= Vector2(originx+factor,originy+factor)
+		scaledArray = [orveca,orvecb,orvecc,orvecd,shade,xstep]
+		
+	else:
+		var prevRect = array[-1]
+		var prevc =prevRect[2]
+		var prevd = prevRect[3]
+		
+		scaledArray = [orveca,orvecb,orvecc,orvecd,shade,xstep]

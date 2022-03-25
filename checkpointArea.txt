@@ -1,0 +1,14 @@
+#CHECKPOINT_AREA
+
+extends Area2D
+
+signal gemsGenerate
+
+func _ready():
+	pass 
+
+
+func _on_checkpointArea_body_entered(body):
+	if body.get_name() == "player":
+		emit_signal("gemsGenerate")
+		print(body.get_name())

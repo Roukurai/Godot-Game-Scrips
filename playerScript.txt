@@ -1,0 +1,41 @@
+#This is going to be the player script information
+
+
+extends KinematicBody2D
+
+
+const GRAVITY = 20
+const WALK_SPEED = 500
+const RUN_SPEED = 750
+const JUMP_STR = -420
+const RESISTANCE = Vector2(0,-1)
+const IDLE_SPEED = 20
+const LABEL_COUNTER_LIFE = "<3:"
+const COUNTER_LIFE = 3
+var motion = Vector2()
+var scriptLoader = preload("res://scriptloader.gd")
+
+
+# warning-ignore:unused_argument
+func _physics_process(delta):
+	motion.y += GRAVITY
+	var SPRITE = get_node("playerCollision/playerSprite")
+	var x_dir = 0
+	if Input.is_action_pressed("move_right"):
+		SPRITE.set_flip_h(false)
+		x_dir += 1
+	elif Input.is_action_pressed("move_left"):
+		SPRITE.set_flip_h(true)
+		x_dir -= 1
+	else:
+		x_dir = 0
+	
+	if is_on_floor():
+		motion.y = IDLE_SPEED
+		if Input.is_action_pressed("jump"):
+			motion.y = JUMP_STR
+	
+	
+	motion.x = x_dir * WALK_SPEED
+# warning-ignore:return_value_discarded
+	move_and_slide(motion,RESISTANCE)
